@@ -12,11 +12,11 @@ require("dotenv").config();
 export default defineConfig({
   testDir: "./tests",
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
   retries: 1,
   reporter: [
+    ["list"],
     [
-      "buildkite-test-collecto/playwright/reporter",
+      "buildkite-test-collector/playwright/reporter",
       { token: process.env.BUILDKITE_ANALYTICS_TOKEN },
     ],
   ],
